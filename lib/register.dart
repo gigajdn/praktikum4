@@ -23,7 +23,6 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 142, 156, 129),
@@ -118,18 +117,17 @@ class _RegisterPageState extends State<RegisterPage> {
                       _formKey.currentState!.reset();
                     },
                     child: const Text('Hapus'),
-
                   ),
-                  ElevatedButton(                  
+                  ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         // Navigasi ke halaman Home
                         Navigator.pushReplacementNamed(context, '/home');
-                      }                      
+                      }
                     },
                     child: const Text('Daftar'),
                     style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.white, 
+                      foregroundColor: Colors.white,
                       backgroundColor: Colors.blue,
                       minimumSize: const Size(80.0, 40.0),
                       shape: RoundedRectangleBorder(
@@ -139,41 +137,40 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ],
               ),
-              const SizedBox(height: 24.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      // Navigasi ke halaman login
-                      Navigator.pushReplacementNamed(context, '/login');
-                    },
-                    child: const Text(
-                      'Sudah Punya Akun?',
-                      style: TextStyle(
-                        color: Colors.black,                        
-                      ),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      // Navigasi ke halaman login
-                      Navigator.pushReplacementNamed(context, '/login');
-                    },
-                    child: const Text(
-                      'Sign In',
-                      style: TextStyle(
-                        color: Colors.blue,
-                        decoration: TextDecoration.underline,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
             ],
           ),
         ),
       ),
+      bottomNavigationBar: BottomAppBar( 
+        surfaceTintColor: Colors.white,            
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+        GestureDetector(
+          onTap: () {
+            // Navigasi ke halaman login
+            Navigator.pushReplacementNamed(context, '/login');
+          },
+          child: const Text(
+            'Sudah Punya Akun?',
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          ),
+        ),
+        GestureDetector(
+          onTap: () {
+            // Navigasi ke halaman login
+            Navigator.pushReplacementNamed(context, '/login');
+          },
+          child: const Text(
+            'Sign In',
+            style: TextStyle(
+              color: Colors.blue,
+              decoration: TextDecoration.underline,
+            ),
+          ),
+        ),
+      ])),
     );
   }
 }
